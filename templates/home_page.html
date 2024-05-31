@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body %}
+{% for article  in articles  %}
+<ul>
+    <li>
+        <h2>{{article.author}}<h2>
+        <h4>{{article.title}}<h2>
+        <h2>{{article.content}}<h2>
+        <small>{{article.creadet_date}}<small>
+        <hr/>
+    <li>
+<ul>
+{% endfor %}
+
+{% endblock body %}
+
+

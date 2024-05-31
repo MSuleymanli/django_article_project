@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+     list-style: none;
+}
+
+body{
+    background-color: teal;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;   
+    background-color: red;
+    padding: 10px;
+    background-color: white;
+}
+
+.nav_links{
+    display: flex;
+    justify-content: center;
+
+}
+
+.nav_links ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav_links a{
+    font-size: 20px;
+    color: black;
+}
+
+.nav_logo img{
+    width: 50px;
+}
+
+
