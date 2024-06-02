@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import RegisterForm, LoginForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate,logout
+from django.contrib import messages
 # Create your views here.
 
 
@@ -15,6 +16,8 @@ def register_page(request):
         newUser.set_password(password)
         newUser.save()
         login(request,newUser)
+        messages.success(request,"Successfully Registered")
+        
         return redirect("home")
     
     context={
@@ -35,13 +38,15 @@ def login_page(request):
         user = authenticate(username=username, password=password)
         
         if user is None:
+            messages.error(request, "Account not found!")
             return render(request, "login_page.html", context)
         
         login(request, user)
+        messages.success(request,"Successfully Login")
         return redirect("home")
     return render(request, "login_page.html", context)
 
 
 def logout_page(request):
     logout(request)
-    return redirect("home")
+    return redirect("contact")

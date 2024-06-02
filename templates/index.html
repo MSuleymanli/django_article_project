@@ -3,5 +3,17 @@ Index
 {% endblock title %}
 
 {% block body %}
+
+{% if messages %}
+    {% for message in messages  %}        
+        {% if message.tags=="warning" %}
+            <div class="alert_warning">{{messages}}</div>
+        {% else %}
+            <div class="alert_success">{{messages}}</div>            
+        {% endif %}
+    {% endfor %}    
+{% endif %}
+    
+
 <h1>Index Page<h1>
 {% endblock body %}

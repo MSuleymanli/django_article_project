@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Add article{% endblock title %}
+
+{% block body %}
+<h2>Add article</h2>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <br>
+
+    
+    <button class="btn">Əlavə et</button>
+</form>
+{% endblock body %}

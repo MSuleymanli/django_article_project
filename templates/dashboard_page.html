@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock title %}
+
+{% block body %}
+<h1>Dashboard</h1>
+<div class="articles">
+    <ul>
+        
+        {% for article in articles %}
+            <li>
+                <h3>{{article.author}}</h3>
+                <h4><a href="{% url 'article_detail' article.id %}">{{article.title}}</a></h4>
+                <p>{{article.content | truncatechars:100}}</p>
+                <small>{{article.created_date}}</small>
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+</div>
+<br><br>
+<a href="{% url 'addarticle' %}"><button>Add Article</button></a>
+
+{% endblock body %}
