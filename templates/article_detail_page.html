@@ -10,8 +10,11 @@ Article Detail
 
     <h3>Author: {{article.author}}</h3>
     <h4>Title: {{article.title}}</h4>
-    <p>Content: {{article.content}}</p>
+    <p>Content: {{article.content |safe}}</p>
     <small>Created date: {{article.created_date}}</small>
-    <hr>
+    <br>
+    {% if article.image %}
+    <img src="{{article.image.url}}" alt="">
+    {% endif %}    <hr>
 </div>
 {% endblock body %}

@@ -13,8 +13,11 @@ Dashboard
             <li>
                 <h3>{{article.author}}</h3>
                 <h4><a href="{% url 'article_detail' article.id %}">{{article.title}}</a></h4>
-                <p>{{article.content | truncatechars:100}}</p>
+                <p>{{article.content |safe | truncatechars:100}}</p>
                 <small>{{article.created_date}}</small>
+                <br>
+                <a href="{% url 'update' article.id %}"><i class="fa-solid fa-gear"></i></a>
+                <a href="{% url 'delete' article.id %}"><i class="fa-solid fa-trash"></i></a>
             </li>
             <hr>
         {% endfor %}

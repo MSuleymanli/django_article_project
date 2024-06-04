@@ -43,7 +43,7 @@ def login_page(request):
         
         login(request, user)
         messages.success(request,"Successfully Login")
-        return redirect("home")
+        return redirect("articles")
     return render(request, "login_page.html", context)
 
 

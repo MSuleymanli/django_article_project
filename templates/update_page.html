@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Updates Page{% endblock title %}
+
+{% block body %}
+<h2>Updates Page</h2>
+
+<form method="post"  enctype="multipart/form-data" >
+    {% csrf_token %}
+    {{from.media}}
+    {{form.as_p}}
+    <br>
+    <button>Update</button>
+
+</form>
+{% endblock body %}
