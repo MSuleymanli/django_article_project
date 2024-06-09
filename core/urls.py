@@ -30,7 +30,8 @@ urlpatterns = [
     path("article_detail/<int:id>",article_detail_page,name="article_detail"),
     path("addarticle",addarticle_page,name="addarticle"),
     path("update/<int:id>",update_page,name="update"),
-    path("delete/<int:id>",delete_page,name="delete")
+    path("delete/<int:id>",delete_page,name="delete"),
+    path("comment/<int:id>",addcomment_page,name="comment")
 
     
 ]

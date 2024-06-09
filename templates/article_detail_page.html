@@ -1,20 +1,51 @@
 {% extends "base.html" %}
 
-
 {% block page__title %}
 Article Detail
 {% endblock page__title %}
 
 {% block body %}
 <div class="articles">
-
-    <h3>Author: {{article.author}}</h3>
-    <h4>Title: {{article.title}}</h4>
-    <p>Content: {{article.content |safe}}</p>
-    <small>Created date: {{article.created_date}}</small>
+    <h3>Author: {{ article.author }}</h3>
+    <h4>Title: {{ article.title }}</h4>
+    <p>Content: {{ article.content |safe }}</p>
+    <small>Created date: {{ article.created_date }}</small>
     <br>
     {% if article.image %}
-    <img src="{{article.image.url}}" alt="">
-    {% endif %}    <hr>
+    <img src="{{ article.image.url }}" alt="">
+    {% endif %}
+    <hr>
+</div>
+
+<div class="comments">
+    <h2>Comments</h2>
+    
+    {% if comments %}
+        {% for comment in comments %}
+            <div class="comment">
+                <h3>{{ comment.comment_author }}</h3>
+                <p>{{ comment.comment_content }}</p>
+                <small>{{ comment.comment_date }}</small>
+            </div>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <div class="alert_warning">Comment not found</div> 
+    {% endif %}
+</div>
+
+<div class="comment_form">
+    <form action="{% url 'comment' article.id %}" method="POST">
+        {% csrf_token %}
+        <div class="form_group">
+            <label for="commentAuthor">Name</label>
+            <textarea name="comment_author" placeholder="Include name..." id="commentAuthor"></textarea>
+        </div>
+        <div class="form_group">
+            <label for="commentContent">Content</label>
+            <textarea name="comment_content" placeholder="Include content" id="commentContent" rows="10" cols="60"></textarea>
+        </div>
+        <button type="submit" class="btn">Send</button>
+    </form>
 </div>
 {% endblock body %}

@@ -73,5 +73,14 @@ body {
     border-color: #c3e6cb;
 }
 
+.btn{   
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-radius: 5px
+}
+
 
 

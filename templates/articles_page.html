@@ -6,18 +6,29 @@ Articles
 
 {% block body %}
 <h2>Articles</h2>
+
+<form method="GET">
+    {% csrf_token %}
+    <input name="keyword" type="text" placeholder="Search">
+    <button type="submit" class="btn">Search</button>
+</form>
+
+{% if articles %}
 <div class="articles">
     <ul>
-        
         {% for article in articles %}
             <li>
-                <h3>{{article.author}}</h3>
-                <h4><a href="{% url 'article_detail' article.id %}">{{article.title}}</a></h4>
-                <p>{{article.content| safe|truncatechars:100}}</p>
-                <small>{{article.created_date}}</small>
+                <h3>{{ article.author }}</h3>
+                <h4><a href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h4>
+                <p>{{ article.content|safe|truncatechars:100 }}</p>
+                <small>{{ article.creadet_date }}</small>
             </li>
             <hr>
         {% endfor %}
     </ul>
 </div>
+{% else %}
+<div class="alert_warning">Articles not found</div>
+{% endif %}
+
 {% endblock body %}

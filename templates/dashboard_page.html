@@ -14,7 +14,7 @@ Dashboard
                 <h3>{{article.author}}</h3>
                 <h4><a href="{% url 'article_detail' article.id %}">{{article.title}}</a></h4>
                 <p>{{article.content |safe | truncatechars:100}}</p>
-                <small>{{article.created_date}}</small>
+                <small>{{article.creadet_date}}</small>
                 <br>
                 <a href="{% url 'update' article.id %}"><i class="fa-solid fa-gear"></i></a>
                 <a href="{% url 'delete' article.id %}"><i class="fa-solid fa-trash"></i></a>
@@ -24,6 +24,6 @@ Dashboard
     </ul>
 </div>
 <br><br>
-<a href="{% url 'addarticle' %}"><button>Add Article</button></a>
+<a href="{% url 'addarticle' %}"><button class="btn">Add Article</button></a>
 
 {% endblock body %}
